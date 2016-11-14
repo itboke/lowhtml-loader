@@ -1,13 +1,19 @@
 {
   "name": "lowhtml-loader",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "combine html for webpack",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itboke/lowhtml-loader.git"
+  },
   "keywords": [
-    "html-loader-webpack"
+    "html-loader-webpack",
+    "html",
+    "webpack"
   ],
   "author": "hzl",
   "license": "ISC"
