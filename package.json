@@ -1,77 +1,14 @@
 {
-  "_args": [
-    [
-      {
-        "raw": "lowhtml-loader",
-        "scope": null,
-        "escapedName": "lowhtml-loader",
-        "name": "lowhtml-loader",
-        "rawSpec": "",
-        "spec": "latest",
-        "type": "tag"
-      },
-      "C:\\Users\\jacklin\\Desktop\\我的订单"
-    ]
-  ],
-  "_from": "lowhtml-loader@latest",
-  "_id": "lowhtml-loader@1.0.0",
-  "_inCache": true,
-  "_location": "/lowhtml-loader",
-  "_nodeVersion": "7.0.0",
-  "_npmOperationalInternal": {
-    "host": "packages-18-east.internal.npmjs.com",
-    "tmp": "tmp/lowhtml-loader-1.0.0.tgz_1479117493873_0.18897124915383756"
-  },
-  "_npmUser": {
-    "name": "givemefive",
-    "email": "953846569@qq.com"
-  },
-  "_npmVersion": "3.10.8",
-  "_phantomChildren": {},
-  "_requested": {
-    "raw": "lowhtml-loader",
-    "scope": null,
-    "escapedName": "lowhtml-loader",
-    "name": "lowhtml-loader",
-    "rawSpec": "",
-    "spec": "latest",
-    "type": "tag"
-  },
-  "_requiredBy": [
-    "#USER"
-  ],
-  "_resolved": "https://registry.npmjs.org/lowhtml-loader/-/lowhtml-loader-1.0.0.tgz",
-  "_shasum": "a2f964df89fe2bc40295d5e97fafb14074a7ab3b",
-  "_shrinkwrap": null,
-  "_spec": "lowhtml-loader",
-  "_where": "C:\\Users\\jacklin\\Desktop\\我的订单",
-  "author": {
-    "name": "hzl"
-  },
-  "dependencies": {},
+  "name": "lowhtml-loader",
+  "version": "1.0.0",
   "description": "combine html for webpack",
-  "devDependencies": {},
-  "directories": {},
-  "dist": {
-    "shasum": "a2f964df89fe2bc40295d5e97fafb14074a7ab3b",
-    "tarball": "https://registry.npmjs.org/lowhtml-loader/-/lowhtml-loader-1.0.0.tgz"
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "html-loader-webpack"
   ],
-  "license": "ISC",
-  "main": "index.js",
-  "maintainers": [
-    {
-      "name": "givemefive",
-      "email": "953846569@qq.com"
-    }
-  ],
-  "name": "lowhtml-loader",
-  "optionalDependencies": {},
-  "readme": "ERROR: No README data found!",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "version": "1.0.0"
+  "author": "hzl",
+  "license": "ISC"
 }
