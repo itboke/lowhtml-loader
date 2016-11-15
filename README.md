@@ -30,9 +30,9 @@ module:{
 
 
 ##功能说明
-###### @@include 可以帮你构建公共的头部文件
-###### @@css     可以帮你构建index.css等文件路径
-###### @@js      可以帮你构建index.js等文件路径
+* @@include 可以帮你构建公共的头部文件
+* @@css     可以帮你构建index.css等文件路径
+* @@js      可以帮你构建index.js等文件路径
 ``` html
 	<!DOCTYPE html>
 	<html lang="en">
