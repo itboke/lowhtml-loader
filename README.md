@@ -14,7 +14,8 @@ npm install lowhtml-loader
 module:{
     // 加载器
     loaders: [
-        { test: /\.(html)$/, loader: 'lowhtml'}
+    	//static为loader参数,作用是让build出来的html里面的css & js文件的路径目录,默认是//127.0.0.1/dist
+        { test: /\.(html|tpl)$/, loader: 'lowhtml?static=localhost:3000/dist'}
     ]
 }
 ```
@@ -25,5 +26,25 @@ module:{
 #####在index.js引入当前的业务html文件,让webpack构建
 ``` js
 	import '../html/index.html';
+```
+
+
+##功能说明
+###### @@include 可以帮你构建公共的头部文件
+###### @@css     可以帮你构建index.css等文件路径
+###### @@js      可以帮你构建index.js等文件路径
+``` html
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+	    @@include('./_common/head.html')
+	    @@css('index.css')
+	</head>
+	<body>
+	    <h1 id="app"></h1>
+	    @@js("vue.min.js,index.js")
+	    @@include('./_common/foot.html')
+	</body>
+	</html>
 ```
 

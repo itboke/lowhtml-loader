@@ -26,7 +26,7 @@ module.exports = function(content){
 		query = parseQuery(this.query);
 	}
 	if(!query.static){
-		query.static = '//:127.0.0.1/dist';
+		query.static = '//127.0.0.1/dist';
 	}
 	this._compiler.plugin('emit',function(compilation,callback){
 			var stats = compilation.getStats().toJson({
