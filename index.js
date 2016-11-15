@@ -1,6 +1,9 @@
 /*
- * lowhtml-loader
+ * @namelowhtml-loader
  * @author hzl
+ * @queryParams static{string} 静态资源的域的链接目录
+ * @queryParams defaultStatic{string} 静态资源的相对目录
+ * @queryParams publicPath{string} 静态资源的CDN目录
 */
 const Path   = require('path');
 const fs     = require('fs');
@@ -17,6 +20,7 @@ function parseQuery(query){
 	return obj;
 };
 module.exports = function(content){
+	'use strict'
 	this.cacheable && this.cacheable();
 	var _file = this.resourcePath.replace(/(\S+\\html\\)/i,'');//获取html文件的目录路径
 	var _content = String(content);
@@ -25,8 +29,15 @@ module.exports = function(content){
 	if(this.query){
 		query = parseQuery(this.query);
 	}
-	if(!query.static){
-		query.static = '//127.0.0.1/dist';
+
+	if(query.static){
+		query.static = '//' + query.static; // 如果配置了静态资源的域
+	}else if(query.defautlStatic){ 
+		query.static = '/' +　query.defautlStatic; //否则调用生产的构建目录为相对路径
+	}else if(query.publicPath){
+		query.static = query.publicPath; //否则调用输出的publicPath为资源路径
+	}else{
+		query.static = '/dist';//当都没有填写的时候,默认html文件中的css,js文件引入dist/
 	}
 	this._compiler.plugin('emit',function(compilation,callback){
 			var stats = compilation.getStats().toJson({
@@ -72,7 +83,7 @@ module.exports = function(content){
 				_cssArr.forEach(function(key) {
 		            key = 'css/' + key;
 		            key = mapJson[key] === undefined ? key : mapJson[key];
-		            _cssLinks += "<link href='//" + query.static + "/" + key + "' rel='stylesheet' type='text/css' />";
+		            _cssLinks += "<link href='" + query.static + "/" + key + "' rel='stylesheet' type='text/css' />";
 	        	});
 	        	_content = _content.replace(_css[0],_cssLinks);
 			}
@@ -81,7 +92,7 @@ module.exports = function(content){
 				_jsArr.forEach(function(key) {
 		            key = 'js/' + key;
 		            key = mapJson[key] === undefined ? key : mapJson[key];
-		            _jsLinks += "<script src='//" + query.static + "/" + key + "'></script>";
+		            _jsLinks += "<script src='" + query.static + "/" + key + "'></script>";
 		        });
 		        _content = _content.replace(_js[0],_jsLinks);
 			}
@@ -100,8 +111,7 @@ module.exports = function(content){
 					}
 				})
 			}
-			//html文件目录匹配
-
+			//输出给webpack管理器
 			compilation.assets[_file] = {
 				source:function(){
 					return _content;
