@@ -20,9 +20,9 @@ module:{
 ```
 
 
-##如果需要webpack构建html文件到生产或者开发目录下
-###例如我下面的demo目录src下的首页index.js文件对应的就是inde.html文件
-####在index.js引入当前的业务html文件,让webpack构建
+##当需要webpack构建html文件到生产或者开发目录下
+#####例如我下面的demo目录src下的首页index.js文件对应的就是inde.html文件
+#####在index.js引入当前的业务html文件,让webpack构建
 ``` js
 	import '../html/index.html';
 ```
