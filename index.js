@@ -19,6 +19,11 @@ function parseQuery(query){
 	}
 	return obj;
 };
+function htmlMinify(source) {
+  var s;
+  s = source.replace(/\/\*([\s\S]*?)\*\//g, '').replace(/<!--([\s\S]*?)-->/g, '').replace(/^\s+$/g, '').replace(/\n/g, '').replace(/\t/g, '').replace(/\r/g, '').replace(/\n\s+/g, ' ').replace(/\s+/g, ' ').replace(/>([\n\s]*?)</g, '><');
+  return s;
+};
 module.exports = function(content){
 	'use strict'
 	this.cacheable && this.cacheable();
@@ -38,6 +43,10 @@ module.exports = function(content){
 		query.static = query.publicPath; //否则调用输出的publicPath为资源路径
 	}else{
 		query.static = '/dist';//当都没有填写的时候,默认html文件中的css,js文件引入dist/
+	}
+
+	if(query.minify){
+		_content = htmlMinify(_content);
 	}
 	this._compiler.plugin('emit',function(compilation,callback){
 			var stats = compilation.getStats().toJson({
