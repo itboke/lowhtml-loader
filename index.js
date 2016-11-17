@@ -116,7 +116,7 @@ module.exports = function(content){
 					}
 				})
 			}
-			if(query.minify){
+			if(query.minify == 'true'){
 				_content = htmlMinify(_content);
 			}
 			//输出给webpack管理器

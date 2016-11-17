@@ -1,6 +1,6 @@
 {
   "name": "lowhtml-loader",
-  "version": "2.1.4",
+  "version": "2.1.6",
   "description": "combine html for webpack",
   "main": "index.js",
   "scripts": {

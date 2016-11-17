@@ -21,7 +21,7 @@ npm install lowhtml-loader
 module:{
     // 加载器
     loaders: [
-        { test: /\.(html)$/, loader: 'lowhtml?static=localhost:3000/dist&defautlStatic=distpublicPath=http://127.0.0.1/dist?minify=true'}
+        { test: /\.(html)$/, loader: 'lowhtml?static=localhost:3000/dist&defautlStatic=dist&publicPath=http://127.0.0.1/dist&minify=true'}
     ]
 }
 ```
