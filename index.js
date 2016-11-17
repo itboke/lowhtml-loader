@@ -44,10 +44,6 @@ module.exports = function(content){
 	}else{
 		query.static = '/dist';//当都没有填写的时候,默认html文件中的css,js文件引入dist/
 	}
-
-	if(query.minify){
-		_content = htmlMinify(_content);
-	}
 	this._compiler.plugin('emit',function(compilation,callback){
 			var stats = compilation.getStats().toJson({
 	                hash: true,
@@ -119,6 +115,9 @@ module.exports = function(content){
 						_content = _content.replace(str,_fileContent);
 					}
 				})
+			}
+			if(query.minify){
+				_content = htmlMinify(_content);
 			}
 			//输出给webpack管理器
 			compilation.assets[_file] = {
